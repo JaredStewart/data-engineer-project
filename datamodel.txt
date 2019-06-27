@@ -1,0 +1,24 @@
+// for use at dbdiagram.io
+
+Table movies_metadata {
+  id int [pk]
+  title varchar
+  released date
+  popularity float
+  budget int
+  revenue int
+  vote_average float
+  vote_count int
+}
+
+Table movie_genres {
+  genre_id int
+  movie_id int [ref: > movies_metadata.id]
+  genre varchar
+}
+
+Table production_companies {
+  company_id int
+  movie_id int [ref: > movies_metadata.id]
+  company_name varchar
+}
